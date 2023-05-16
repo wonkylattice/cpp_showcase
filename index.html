@@ -21,11 +21,6 @@
       text-align: left;
     }
 
-    .section-header {
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-
     .section-content {
       font-size: 18px;
       margin-bottom: 40px;
@@ -44,9 +39,9 @@
 
   <section>
     <div class="container">
-      <h2 class="section-header">Project Motivation</h2>
+      <h2 class="section-header">Project Overview</h2>
       <p class="section-content">
-        The audio reactive LED project seeks to create
+        The audio reactive LED display seeks to enhance audio experience by adding visual component. This is done by continously outputing
       
       
       
@@ -58,31 +53,29 @@
    <section>
     <div class="container">
       <h2 class="section-header">Requirements</h2>
-      <h5 class="section-header">System characteristics and their justifications. </h5>
-
+      <p> <i>System characteristics and their justifications.</i> </p>
       <p class="section-content">
         
-        Minimal Latency: The time between when the audio is played and when the corresponding data is being displayed should be kept minimal. 
+        <b> Minimal Latency:</b> The time between when the audio is played and when the corresponding data is being displayed should be kept minimal. 
         Based on studies by the International Telecommunication Union (ITU), the threshold for syncronization error detection is about 45 ms to –125 ms
         (audio leading display is indicated as a positive value; audio lagging display is indicated as a negative value). This will be the target range.
         <br>
         <br>
-        User Control: Different audio (or personal preferences) will require different display attributes. Users must be able to change LED display color,
-        display method, brightness, and frequency bins/instruments displayed for each LED strip.
+        <b>User Control:</b> Different audio (or personal preferences) will require different display attributes. Users must be able to change LED display color,
+        display method, brightness, and frequency bins/instruments displayed for each LED strip. To interface with these contorls, a Python based app will be created.
         <br>
         <br>
-        Instrument Isolation: Frequency alone is not fully representative of how music is percieved. A more accurate segmentation of audio is done through 
+        <b>Instrument Isolation:</b> Frequency alone is not fully representative of how music is percieved. A more accurate segmentation of audio is done through 
         instruments. Since different instruments can occupy the same frequency bins, Fourier analysis alone can not achieve instrument segmentation/isolation.
         For this purpose, a Convolutional Neural Network will be created using the TensorFlow Python library. Frequency bins will be as an option for display.
         <br>
         <br>
-        Multiple ESPs (Modularity): One of the bottlenecks for latency are the digital LED strips. All LED strips are controlled by a single data line and thus
+        <b>Modularity:</b> One of the bottlenecks for latency are the digital LED strips. All LED strips are controlled by a single data line and thus
         communication with all the LEDs for each update can take a significant amount of time. To resolve this, a modular system will be create consisting of a
         main controller processing audio data and sending the data to be displayed by other modular display controllers. This allows audio to be sent to only 
         one reciever controller and allows for parallel processing.
         <br>
         <br>
-        Mutliple LED Strips:
       </p>
       <img src="image1.jpg" alt="Image 1">
     </div>
