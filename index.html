@@ -131,17 +131,16 @@
       <img src="images/amin_binary_mask/0.005.png" alt=".005 bm" width="300" height="240"/>
       <img src="images/amin_binary_mask/0.0008.png" alt=".0008 bm" width="300" height="240"/>
       <audio controls>
-        <source src="audio/amin_recon_vocals/.01iso.wav" type="audio/wav">
+        <source src="audio/amin_recon_vocals/0.0001iso.wav" type="audio/wav">
        </audio>
-        <br>
               <audio controls>
-        <source src="audio/amin_recon_vocals/.01iso.wav" >
+        <source src="audio/amin_recon_vocals/0.001iso.wav" type="audio/wav">
+       </audio>
+              <audio controls>
+        <source src="audio/amin_recon_vocals/0.01iso.wav" type="audio/wav">
        </audio>
         <br>
-                      <audio controls>
-        <source src="0.01iso.wav" type="audio/wav">
-       </audio>
-        <br>
+
         
        &emsp; For training, the input was split into multiple samples using a sliding window of time length (ms), moving along the spectogram one frame at time. The output for each sample was 
        the binary mask's corresponding middle frame of window. This is done to provide enough temporal context to create accurate predicitions. Once split, additional data augmentation 
