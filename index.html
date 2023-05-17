@@ -134,6 +134,15 @@
         <source src="audio/amin_recon_vocals/.01iso.wav" type="audio/wav">
        </audio>
         <br>
+              <audio controls>
+        <source src="audio/amin_recon_vocals/.01iso.wav" >
+       </audio>
+        <br>
+                      <audio controls>
+        <source src="/audio/amin_recon_vocals/.01iso.wav" type="audio/wav">
+       </audio>
+        <br>
+        
        &emsp; For training, the input was split into multiple samples using a sliding window of time length (ms), moving along the spectogram one frame at time. The output for each sample was 
        the binary mask's corresponding middle frame of window. This is done to provide enough temporal context to create accurate predicitions. Once split, additional data augmentation 
        such as added noise and frequency masking could be applied. 
