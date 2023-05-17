@@ -118,7 +118,7 @@
         full mix, vocals, drums, bass, and others. To follow the article, my first CNN iteration was trained and tested for vocal isolation
       </p>
       
-      <h3Data Preprocessing</h3>
+      <h3>Data Preprocessing</h3>
       <p class="section-content">
       Each song in the training set, the raw data is normalized and converted to complex spectograms. This was done for both the full mix and for the vocals. From these, a mix without the
       the vocals is created by subtracting the isolated vocals from the full mix. The binary mask is created by setting all frequency bins for which the vocal magntiude
@@ -129,12 +129,12 @@
        the binary mask's corresponding middle frame of window. This is done to provide enough temporal context to create accurate predicitions. Once split, additional data augmentation 
        such as added noise and frequency masking could be applied.
       </p>     
-      <h3Variables</h3>
+      <h3>Variables</h3>
       <p class="section-content"> 
       Things that were assumed were the methods for creating the binary mask.
     
       </p>
-      <h3Future Improvement</h3>
+      <h3> Resutls </h3>
             <p class="section-content"> 
       Things that were assumed method of creating binary mask.
     
