@@ -104,39 +104,58 @@
     <div class="container">
       <h2 class="section-header"> Instrument Isolation CNN</h2>
       <p class="section-content"> 
-        The convolutional neural network architecture was based on the following article published in Towards Data Science: <a href="https://towardsdatascience.com/audio-ai-isolating-vocals-from-stereo-music-using-convolutional-neural-networks-210532383785">Audio AI: isolating vocals from stereo music using Convolutional Neural Networks</a>.
+        &emspThe convolutional neural network architecture was based on the following article published in Towards Data Science: <a href="https://towardsdatascience.com/audio-ai-isolating-vocals-from-stereo-music-using-convolutional-neural-networks-210532383785">Audio AI: isolating vocals from stereo music using Convolutional Neural Networks</a>.
         This model is designed for single instrument isolation and is demonstrated with vocals. The input to the network is a mixed audio magnitude spectogram and its output is a binary mask
         This mask, when applied to the original complex spectogram, isolates the particular instrument.
         
-        There is a second article discussing the different possibilites for
+        &emsp There is a second article discussing the different possibilites for
         expanding this architecture to other instrument groups. 
         <br>
         
         <br>
-             In the article, a pipeline was created to find mixes and corresponding vocal tracks by scraping Youtube 
+        &emsp In the article, a pipeline was created to find mixes and corresponding vocal tracks by scraping Youtube 
         audio and acapella databases. To save time and resources, I chose the free MUSDB18 dataset consisting of 150 .stem files. The available stems were
         full mix, vocals, drums, bass, and others. To follow the article, my first CNN iteration was trained and tested for vocal isolation
       </p>
       
       <h3>Data Preprocessing</h3>
       <p class="section-content">
-      Each song in the training set, the raw data is normalized and converted to complex spectograms. This was done for both the full mix and for the vocals. From these, a mix without the
+      &emsp Each song in the training set, the raw data is normalized and converted to complex spectograms. This was done for both the full mix and for the vocals. From these, a mix without the
       the vocals is created by subtracting the isolated vocals from the full mix. The binary mask is created by setting all frequency bins for which the vocal magntiude
       is larger than than no-vocal mix magnitude to 1.  (db_min)(Assumed). For the input spectogram, if using data augmentation, pitch shifting is applied before converting to the spectogram. The
       mix spectogram and binary mask were converted to the Mel scale. A dB scaling may also be applied at this time.
        <br>
-       For training, the input was split into multiple samples using a sliding window of time length (ms), moving along the spectogram one frame at time. The output for each sample was 
+       &emsp For training, the input was split into multiple samples using a sliding window of time length (ms), moving along the spectogram one frame at time. The output for each sample was 
        the binary mask's corresponding middle frame of window. This is done to provide enough temporal context to create accurate predicitions. Once split, additional data augmentation 
-       such as added noise and frequency masking could be applied.
+       such as added noise and frequency masking could be applied. 
       </p>     
       <h3>Variables</h3>
       <p class="section-content"> 
+      Dataset Preprocessing Variable:
+        
+      <b>n_fft:<\b> length of STFT window in samples after padding (Typically left at 4096)
+      <b>hop_size:<\b> number of samples between subsequent STFT (Typically left at 256)
+      <b>win_length:<\b> length of STFT window in samples before 0 padding (Typically left at 1024)
+      <b>sr:<\b> sampleing rate of audio (Typically downsampled from 44100 to 22050)
+      <b>n_mels:<\b> number of mel bins (Typically left at 512)
+      <b>sample_width:<\b> Width of sliding window for indiividal training samples (Left at 25)
+      
+      <b>output_amin:<\b> Lower threshold for dB scaling on output. Higher output_amin signifies
+      less non-significant spectrum represented in binary mask.
+      <b>input_amin:<\b> Lower threshold for dB scaling on input. Higher output_amin signifies
+      less non-significant spectrum in input spectogram.
+        
+      <b>pitch_shift:<\b> boolean representing the inclusion of pitch shift data augmentation
+      percent noise
+      
+      Due to the amount of variables present, it was decided use the same STFT values for as the article.
+      The varibles that will be varied include the dB minimum, data augmentation variables, and model hyperparameters 
+        
       Things that were assumed were the methods for creating the binary mask.
     
       </p>
       <h3> Resutls </h3>
-            <p class="section-content"> 
-      Things that were assumed method of creating binary mask.
+      <p class="section-content"> 
     
       </p>
       <h3Future Improvement and Next Steps</h3>
