@@ -120,13 +120,18 @@
         audio and acapella databases. To save time and resources, I chose the free MUSDB18 dataset consisting of 150 .stem files. The available stems were
         full mix, vocals, drums, bass, and others. To follow the article, my first CNN iteration was trained and tested for vocal isolation
       </p>
+
       
       <h3>Data Preprocessing</h3>
       <p class="section-content">
-      &emsp; Each song in the training set, the raw data is normalized and converted to complex spectograms. This was done for both the full mix and for the vocals. From these, a mix without the
-      the vocals is created by subtracting the isolated vocals from the full mix. The binary mask is created by setting all frequency bins for which the vocal magntiude
-      is larger than than no-vocal mix magnitude to 1.  (db_min)(Assumed). For the input spectogram, if using data augmentation, pitch shifting is applied before converting to the spectogram. The
-      mix spectogram and binary mask were converted to the Mel scale. A dB scaling may also be applied at this time.
+      &emsp; Each song in the training set was normalized and converted to complex spectograms. This was done for both the full mix and for the vocals. From these, a mix without the
+      the vocals is created by subtracting the isolated vocals from the full mix. The binary mask is created by comparing the frequency bins of the vocal magntiude
+      to that of the magnitude of the vocal-less mix. 
+        
+      &emsp; Tested data augmentations included pitch shifting, noise addition, and volume variations
+      Mel scaling and dB conversion may also be applied at this time.
+
+        
        <br>
       <img src="images/amin_binary_mask/0.05.png" alt=".05 bm" width="300" height="240"/>
       <img src="images/amin_binary_mask/0.02.png" alt=".02 bm" width="300" height="240"/>
