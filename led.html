@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- basic -->
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- mobile metas -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<!-- site metas -->
+<title>Gamepad</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<meta name="author" content="">	
+<!-- bootstrap css -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!-- style css -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<!-- Responsive-->
+<link rel="stylesheet" href="css/responsive.css">
+<!-- fevicon -->
+<link rel="icon" href="images/fevicon.png" type="image/gif" />
+<!-- Scrollbar Custom CSS -->
+<link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+<!-- Tweaks for older IEs-->
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<!-- owl stylesheets --> 
+<link rel="stylesheet" href="css/owl.carousel.min.css">
+<link rel="stylesheet" href="css/owl.theme.default.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+</head>
+<body>
+	<!-- header section start -->
+  <div class="head_section">
+    <h1 class="head_text">&emsp;&emsp; Edward Enriquez &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; edward00enriquez@gmail.com &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 562-415-4503</h1>
+  </div>
+	<div class="header_section">
+		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link2" href="led.html">LED PROJECT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="matlab.html">MATLAB FUN</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="labs.html">LABS</a>
+                </li>
+              </ul>
+            </div>
+        </nav>
+	</div>
+  <!-- <div class="about_section layout_padding">
+
+    <h1 class="about_text_large_mid">AUDIO REACTIVE LEDS</h1>
+
+</div> -->
+
+  <!-- banner section end -->
+  <!-- about section start -->
+  <div class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="image_2"><img src="images/gif_1.gif"></div>
+        </div>
+        <div class="col-md-6">
+          <h1 class="about_text_mid">Project Overview</h1>
+          <p class="paragraph_17">- The audio reactive LED display seeks to enhance audio experience by adding a visual component. 
+            The display receives audio data via Bluetooth and displays the amplitude of specified frequency bin or instruments on individual LED strips. <br><br><br> </p>
+          <p class="paragraph_17">- The properties of each LED strip such as brightness, color, display mode and frequency bin/instrument to display are all controlled by a Python based mobile app.<br><br><br>  </p>
+          <p class="paragraph_17">- The display consists of two controller used for receiving and processing audio data. This data is sent to modular display units via a WiFi communciation protocol.
+          Each display module controls 4 individual LED strips.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- banner section end -->
+  <!-- about section start -->
+  <div class="ML_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+
+            <h1 class="about_text_mid">Machine Learning</h1>
+            <p class="paragraph">For instrument isolation, convolutional neural networks were created in TensorFlow</p>
+            <h1 class="about_text_left"> </h1>
+            <h1 class="about_text_left"> </h1>
+
+
+            <h3 class="about_text_left_med">Methodology</h3>
+            <p class="paragraph">- The convolutional neural network architecture was based on the following article published in Towards Data Science: <a href="https://towardsdatascience.com/audio-ai-isolating-vocals-from-stereo-music-using-convolutional-neural-networks-210532383785">Audio AI: isolating vocals from stereo music using Convolutional Neural Networks</a>. 
+            This model is designed for single instrument isolation. The input to the network is a mixed audio magnitude spectogram and its output is an instrument binary mask.
+            This mask, when applied to the original complex spectogram, isolates the particular instrument.</p>
+            <p class="paragraph">- The MUSDB18 dataset was used consisting of 150 .stem files. The available stems were full mix, vocals, drums, bass, and others. In total the data consisted of 9 hours and 48 of distinct audio </p>
+            <h1 class="about_text_left"> </h1>
+            <h1 class="about_text_left"> </h1>
+
+
+
+            <h3 class="about_text_left_med">Data Preproessing</h3>
+            <p class="paragraph">- Each song stem in the training set was normalized and converted to complex spectograms. The binary mask is created by comparing the frequency bins of the vocal magntiude to the vocal-less mix magnitude.</p>
+            <p class="paragraph">- To explore different configurations, the binary masks were generated with dB scaled spectograms with varying minimum thresholds.
+            Larger thresholds recreate less accurate vocals, but reveal structure which the CNN could more easily identify.</p>
+            <p class="paragraph">- For training, the input data was split into multiple samples using a sliding window of time length (ms), moving along the spectogram one STFT frame at time. The corresponding output was 
+                the binary mask's middle frame of the same window. </p>
+            <p class="paragraph">- Tested data augmentations included pitch shifting, noise addition, and volume variations. Mel scaling and dB conversion may also be applied at this time.</p>
+        
+
+            <div class="row">
+            <div class="col-md-4">
+                <img src="images/amin_binary_mask/0.0008.png" alt=".0008 bm" width="300" height="240"/>
+            </div>
+            <div class="col-md-4">
+                <img src="images/amin_binary_mask/0.005.png" alt=".01 bm" width="300" height="240"/>
+            </div>
+            <div class="col-md-4">
+                <img src="images/amin_binary_mask/0.05.png" alt=".05 bm" width="300" height="240"/>
+                
+            </div>
+            </div>
+
+
+                      
+            <div class="row">
+            <div class="col-md-4">
+                <audio controls>
+                    <source src="images/amin_recon_vocals/0.0001iso.wav" type="audio/wav">
+                   </audio>
+            </div>
+            <div class="col-md-4">
+                <audio controls>
+                    <source src="images/amin_recon_vocals/0.001iso.wav" type="audio/wav">
+                   </audio>
+            </div>
+            <div class="col-md-4">
+                <audio controls>
+                    <source src="images/amin_recon_vocals/0.01iso.wav" type="audio/wav">
+                   </audio>
+            </div>
+            </div>
+            <h1 class="about_text_left"> </h1>
+            <h1 class="about_text_left"> </h1>
+            <h1 class="about_text_left"> </h1>
+            <h1 class="about_text_left"> </h1>
+
+
+            <h3 class="about_text_left_med">Results</h3>
+            <p class="paragraph">- The test song demonstrated here is Badfish by Sublime. The two example isolated vocals were retrieved from the same CNN but were processed differently after. The first allowed for more false positives, while the other allowed for more false negatives. </p>
+            <p class="paragraph">- The intro is a guitar strumming over a chattering crowd. Although the CNN was not trained for with this type of data, the vocal content is still someone isolated from the guitars</p>
+            <p class="paragraph">- The main vocal section is the majority of the song, with not much variance in song structure</p>
+            <p class="paragraph">- Not many guitar solos were present in the data and as such, the guitar solo is indentified as vocal content but with less accuracy.</p>
+            <p class="about_text_left_small">Results should be interpreted with regards to the overall goal. Audible recreation of vocals is not the ultimate metric. As long as there is content of similar magntiude to the vocals, the results would be viewed the same on the LEDs </p>
+
+
+            <div class="row">
+                <div class="col-md-2"></div>
+                <div class="col-md-3">
+                <p class="long_text">Intro</p>
+                </div>
+                <div class="col-md-3">
+                <p class="long_text">Main Vocals</p>
+                </div>
+                <div class="col-md-3">
+                <p class="long_text">Solo and Outro</p>
+                </div>
+                </div>
+
+
+
+                <div class="row">
+
+                <div class="col-md-2">
+                    <p class="long_text">Original Mix</p>
+                    <p class="long_text">Isolated Vocals</p>
+                </div>
+                <div class="col-md-3">
+                    <audio controls>
+                        <source src="images/may_28_badfish/intro_mix.mp3" type="audio/wav">
+                    </audio>
+                    <audio controls>
+                        <source src="images/may_28_badfish/intro_vocals.mp3" type="audio/wav">
+                    </audio>
+                    <audio controls>
+                      <source src="images/new_badfish/intro_vocals.mp3" type="audio/wav">
+                  </audio>
+                </div>
+                <div class="col-md-3">
+                    <audio controls>
+                        <source src="images/may_28_badfish/mid_mix.mp3" type="audio/wav">
+                    </audio>
+                    <audio controls>
+                        <source src="images/may_28_badfish/mid_vocals.mp3" type="audio/wav">
+                    </audio>
+                    <audio controls>
+                      <source src="images/new_badfish/mid_vocals.mp3" type="audio/wav">
+                  </audio>
+                </div>
+                <div class="col-md-3">
+                    <audio controls>
+                        <source src="images/may_28_badfish/solo_end_mix.mp3" type="audio/wav">
+                    </audio>
+                    <audio controls>
+                        <source src="images/may_28_badfish/solo_end_vocals.mp3" type="audio/wav">
+                    </audio>
+                    <audio controls>
+                      <source src="images/new_badfish/solo_vocals.mp3" type="audio/wav">
+                  </audio>
+                </div>
+                </div>
+        
+                <h3 class="about_text_left_med">Future ML Improvements</h3>
+                <p class="paragraph">- Better postprocessing techniques such as adaptive filtering, ensemble ML, or spectral subtraction. Are possibly more efficent techniques to remove unwanted stem content from the isolated output. </p>
+                <p class="paragraph">- A more larger dataset could also provide better results. The referenced article used around 15M unique training samples for its final training session, while this project used anywhere from around 1M to 5M due to limited dataset size and computer GPU memory.</p>
+                <p class="paragraph">- The dataset was also not sufficiently diverse and contained only royalty free music. Ideally the dataset would be collected from real world popular music which has its own production sound </p>
+                <p class="paragraph">- Instruments such as bass and drum have more identifiable spectrograms. The spectograms of these instruments can possibly help in the isolation of other instruments </p>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- banner section end -->
+  <!-- about section start -->
+  <div class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="image_2"><img src="images/esp32.jpg"></div>
+        </div>
+        <div class="col-md-6">
+          <h1 class="about_text_mid">Audio processing<br><br></h1>
+          <p class="paragraph_20">- Real time audio is recieved via a Bluetooth AD2P Sink module.The data sent to be processed to another ESP-32 via I2S. 
+            Fourier analysis is performed on the data.<br><br><br><br></p>
+          <p class="paragraph_20">
+            - Instrument seperated audio could also be analyzed and is sent from the Python app directly to the processing ESP-32 via the Bleak Python module, 
+             In this case, further Fourier analysis is not necessary.<br><br><br><br></p>
+          <p class="paragraph_20">
+            - Along with the received LED display configurations, the processed data is sent to the modular LED Display via ESP-32's ESP-NOW WiFi protocol. The conneted LEDs display
+            the data with the specified properties.
+          </p>
+            
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+ <!-- banner section end -->
+  <!-- about section start -->
+  <div class="ML_section layout_padding">
+    <div class="container">
+
+
+          <div class="row">
+            <div class="col-md-8">
+            <h1 class="about_text_mid">Control App</h1>
+            <p class="paragraph_17">- The app stores all information for each individual LED strip.<br><br><br><br></p>
+            
+            <p class="paragraph_17">- Properties for each strip include color, brightness, amplitude multiplier, number of LEDs, mode of display, and frequency bin/instrument to display.
+                The option to swtich from real time audio to preprocessed is also made avaiable through the app.<br><br><br><br></p>
+            <p class="paragraph_17">- The app also provides additional functionalities like linking 2 or more properties of different strips or saving presets.</p>
+            </div>
+          
+
+          <div class="col-md-4">
+            <div class="image_2"><img src="images/appgif.gif"></div>
+          </div>
+
+        </div>
+    </div>
+  </div>
+
+
+ <!-- banner section end -->
+  <!-- about section start -->
+  <div class="about_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="image_2"><img src="images/tflite.png"></div>
+        </div>
+        <div class="col-md-6">
+          <h1 class="about_text_mid">Future Plans</h1>
+          <p class="paragraph">- For real time isolation of instruments, the CNN could be embedded into an ESP-32 microcontroller using TF-Lite. Possible hurdles could be memory capacity and latency.
+          <br>
+          <br> 
+          </p>
+          <p class="paragraph">
+            - The Python Bleak module sends infromation via BLE (Bluetooth Low-Energy), which sends data slowly to the ESP-32. Building the app with other languages could result in lower latency.<br><br> 
+          </p>
+          <p class="paragraph">
+            - A sure and quick way to improve model results would be to curate a dataset. As done in the article, one method to do this is to scrape acapella database sites and find corresponding audio on YouTube.
+          </p>
+
+
+        </div>
+      </div>
+    </div>
+
+    </script>
+</body>
+</html>
