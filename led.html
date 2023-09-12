@@ -92,16 +92,16 @@
 
 
             <h1 class="about_text_mid">Machine Learning</h1>
-            <p class="paragraph">For instrument isolation, convolutional neural networks were created in TensorFlow</p>
+            <p class="paragraph">For instrument isolation from mixed audio, convolutional neural networks were created in TensorFlow. "Mix" or "mixed" refers to the original audio or song with all instruments present.</p>
             <h1 class="about_text_left"> </h1>
             <h1 class="about_text_left"> </h1>
 
 
             <h3 class="about_text_left_med">Methodology</h3>
             <p class="paragraph">- The convolutional neural network architecture was based on the following article published in Towards Data Science: <a href="https://towardsdatascience.com/audio-ai-isolating-vocals-from-stereo-music-using-convolutional-neural-networks-210532383785">Audio AI: isolating vocals from stereo music using Convolutional Neural Networks</a>. 
-            This model is designed for single instrument isolation. The input to the network is a mixed audio magnitude spectogram and its output is an instrument binary mask.
+            This model is designed for single instrument isolation from mixed audio. The input to the network is a mixed audio magnitude spectogram and its output is an instrument binary mask.
             This mask, when applied to the original complex spectogram, isolates the particular instrument.</p>
-            <p class="paragraph">- The MUSDB18 dataset was used consisting of 150 .stem files. The available stems were full mix, vocals, drums, bass, and others. In total the data consisted of 9 hours and 48 of distinct audio </p>
+            <p class="paragraph">- The MUSDB18 dataset was used consisting of 150 .stem files. The available stems were mixed, vocals, drums, bass, and others. In total the data consisted of 9 hours and 48 minutes of distinct audio. </p>
             <h1 class="about_text_left"> </h1>
             <h1 class="about_text_left"> </h1>
 
@@ -113,7 +113,7 @@
             Larger thresholds recreate less accurate vocals, but reveal structure which the CNN could more easily identify.</p>
             <p class="paragraph">- For training, the input data was split into multiple samples using a sliding window of time length (ms), moving along the spectogram one STFT frame at time. The corresponding output was 
                 the binary mask's middle frame of the same window. </p>
-            <p class="paragraph">- Tested data augmentations included pitch shifting, noise addition, and volume variations. Mel scaling and dB conversion may also be applied at this time.</p>
+            <p class="paragraph">- Tested data augmentations included pitch shifting, noise addition, and volume variations. Mel scaling and dB conversion may also be applied after windowing.</p>
         
 
             <div class="row">
@@ -156,7 +156,7 @@
 
             <h3 class="about_text_left_med">Results</h3>
             <p class="paragraph">- The test song demonstrated here is Badfish by Sublime. The two example isolated vocals were retrieved from the same CNN but were processed differently after. The first allowed for more false positives, while the other allowed for more false negatives. </p>
-            <p class="paragraph">- The intro is a guitar strumming over a chattering crowd. Although the CNN was not trained for with this type of data, the vocal content is still someone isolated from the guitars</p>
+            <p class="paragraph">- The intro is a guitar strumming over a chattering crowd. Although the CNN was not trained for with this type of data, the vocal content is still somewhat isolated from the guitars</p>
             <p class="paragraph">- The main vocal section is the majority of the song, with not much variance in song structure</p>
             <p class="paragraph">- Not many guitar solos were present in the data and as such, the guitar solo is indentified as vocal content but with less accuracy.</p>
             <p class="about_text_left_small">Results should be interpreted with regards to the overall goal. Audible recreation of vocals is not the ultimate metric. As long as there is content of similar magntiude to the vocals, the results would be viewed the same on the LEDs </p>
@@ -220,7 +220,7 @@
         
                 <h3 class="about_text_left_med">Future ML Improvements</h3>
                 <p class="paragraph">- Better postprocessing techniques such as adaptive filtering, ensemble ML, or spectral subtraction. Are possibly more efficent techniques to remove unwanted stem content from the isolated output. </p>
-                <p class="paragraph">- A more larger dataset could also provide better results. The referenced article used around 15M unique training samples for its final training session, while this project used anywhere from around 1M to 5M due to limited dataset size and computer GPU memory.</p>
+                <p class="paragraph">- A more larger dataset would most likely yield better results. The referenced article used around 15M unique training samples for its final training session, while this project used anywhere from around 1M to 5M due to limited dataset size and computer GPU memory.</p>
                 <p class="paragraph">- The dataset was also not sufficiently diverse and contained only royalty free music. Ideally the dataset would be collected from real world popular music which has its own production sound </p>
                 <p class="paragraph">- Instruments such as bass and drum have more identifiable spectrograms. The spectograms of these instruments can possibly help in the isolation of other instruments </p>
 
@@ -240,13 +240,13 @@
         </div>
         <div class="col-md-6">
           <h1 class="about_text_mid">Audio processing<br><br></h1>
-          <p class="paragraph_20">- Real time audio is recieved via a Bluetooth AD2P Sink module.The data sent to be processed to another ESP-32 via I2S. 
+          <p class="paragraph_20">- Real time audio is recieved via a Bluetooth AD2P Sink module on a ESP-32 microcontroller. The data is sent to be processed to another ESP-32 via I2S. 
             Fourier analysis is performed on the data.<br><br><br><br></p>
           <p class="paragraph_20">
             - Instrument seperated audio could also be analyzed and is sent from the Python app directly to the processing ESP-32 via the Bleak Python module, 
              In this case, further Fourier analysis is not necessary.<br><br><br><br></p>
           <p class="paragraph_20">
-            - Along with the received LED display configurations, the processed data is sent to the modular LED Display via ESP-32's ESP-NOW WiFi protocol. The conneted LEDs display
+            - Along with the received LED display configurations, the processed data is sent to the modular LED Display via ESP-32's ESP-NOW WiFi protocol. The connected LEDs display
             the data with the specified properties.
           </p>
             
@@ -297,7 +297,7 @@
           <br> 
           </p>
           <p class="paragraph">
-            - The Python Bleak module sends infromation via BLE (Bluetooth Low-Energy), which sends data slowly to the ESP-32. Building the app with other languages could result in lower latency.<br><br> 
+            - The Python Bleak module sends information via BLE (Bluetooth Low-Energy), which sends data slowly to the ESP-32. Building the app with other languages could result in lower latency.<br><br> 
           </p>
           <p class="paragraph">
             - A sure and quick way to improve model results would be to curate a dataset. As done in the article, one method to do this is to scrape acapella database sites and find corresponding audio on YouTube.
