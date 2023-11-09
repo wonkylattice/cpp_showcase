@@ -94,7 +94,47 @@
   </div> -->
 
   <!-- about section start -->
+ 
   <div class="about_section layout_padding">
+
+    <h1 class="about_text_mid">Time Dependent Schrodinger Equation</h1>
+
+    <p class="paragraph_17_mid">  In quantum mechanics, the wave function is a mathematical representation of a physical system. The wave function, represented by ${\Psi(\mathbf{r}, t)}$ , contains all the information of a system's state. The function value of wave functions are probability amplitudes for position, but information about other physical properties could be extracted by applying specific operators.
+      <br><br>To be a valid wave function, ${\Psi(\mathbf{r}, t)}$  must satisfy the Time Dependant Schrodinger Equation (TDSE). This is an equation describing the time evolution of a wave function in a certain potential. This equation was derived from a combination of quantum and classical physic principles.
+  
+      <br><br>${i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = -\frac{\hbar^2}{2m} \nabla^2 \Psi(\mathbf{r}, t) + V(\mathbf{r}, t) \Psi(\mathbf{r}, t)}$
+
+  
+      <br><br>Solving for ${\frac{\partial}{\partial t} \Psi(\mathbf{r}, t)}$:                    
+  
+      <br><br>${\frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = \frac{i\hbar}{2m} \nabla^2 \Psi(\mathbf{r}, t) - V(\mathbf{r}, t) \Psi(\mathbf{r}, t)\frac{i}{\hbar}}$
+
+
+      <br><br> Given this requirement for  ${\frac{\partial}{\partial t} \Psi(\mathbf{r}, t)}$ , and an initial wave function at ${t=0}$. The Runge Kutta method could be used to determine the time evolution of the wave function within a given potential ${V(\mathbf{r}, t)}$.
+  
+      <br><br>Since  ${\Psi(\mathbf{r}, t)}$  conveys probability ampltiudes, the probability distrubtion function (PDF) for particle detection at a given location is calculated by 
+  ${\Psi^*(\mathbf{r}, t) \cdot \Psi(\mathbf{r}, t)=real(\Psi(\mathbf{r}, t))^2+imag(\Psi(\mathbf{r}, t))^2}$
+    </p>
+    
+      <p class="paragraph_17_mid"> The TDSE demonstrates the quantum uncertainty principle which states that the uncertainty in position is inversely proportionaly to the uncertainity of momentum. The exact relationship is expressed by the following equation ${\Delta x \Delta p \geq \frac{\hbar}{2}}$.
+        By decreasing the initial standard deviation (decreasing positional uncertainty) of the guassian envelope, the momentum of the wave function becomes more uncertain. The movement of the wavefunction becomes less defined. The following images are three wave functions in a parabolic potential with increasing uncertainty of momentum but decreasing uncertainty of initial (measured) position.</p>
+	  
+      <div class="image_2"><img src="images/MATLAB/psi_up_three.gif"></div>
+      <div class="image_2"><img src="images/MATLAB/psi_up_two.gif"></div>
+      <div class="image_2"><img src="images/MATLAB/psi_up_one.gif"></div>
+
+      <p class="paragraph_17_mid">  In quantum mechanics the momentum, is directly related to the wavenumbers of the wave. The higher the wave number, the more momentum and more energy the system contains. The higher the energy of the wave, the more distance the wave could travel away from the origin before being reflected by the potential.</p>
+
+
+      <div class="image_2"><img src="images/MATLAB/psi_energy.gif"></div>
+
+
+
+  </div>
+
+</div>
+	
+ <div class="about_section layout_padding">
 
           <h1 class="about_text_mid">Platonic Solid Truncation</h1>
           <div class="row">
@@ -139,45 +179,6 @@
   </div>
  <!-- header section end -->
   <!-- about section start -->
-
-  <div class="about_section layout_padding">
-
-    <h1 class="about_text_mid">Time Dependent Schrodinger Equation</h1>
-
-    <p class="paragraph_17_mid">  In quantum mechanics, the wave function is a mathematical representation of a physical system. The wave function, represented by ${\Psi(\mathbf{r}, t)}$ , contains all the information of a system's state. The function value of wave functions are probability amplitudes for position, but information about other physical properties could be extracted by applying specific operators.
-      <br><br>To be a valid wave function, ${\Psi(\mathbf{r}, t)}$  must satisfy the Time Dependant Schrodinger Equation (TDSE). This is an equation describing the time evolution of a wave function in a certain potential. This equation was derived from a combination of quantum and classical physic principles.
-  
-      <br><br>${i\hbar \frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = -\frac{\hbar^2}{2m} \nabla^2 \Psi(\mathbf{r}, t) + V(\mathbf{r}, t) \Psi(\mathbf{r}, t)}$
-
-  
-      <br><br>Solving for ${\frac{\partial}{\partial t} \Psi(\mathbf{r}, t)}$:                    
-  
-      <br><br>${\frac{\partial}{\partial t} \Psi(\mathbf{r}, t) = \frac{i\hbar}{2m} \nabla^2 \Psi(\mathbf{r}, t) - V(\mathbf{r}, t) \Psi(\mathbf{r}, t)\frac{i}{\hbar}}$
-
-
-      <br><br> Given this requirement for  ${\frac{\partial}{\partial t} \Psi(\mathbf{r}, t)}$ , and an initial wave function at ${t=0}$. The Runge Kutta method could be used to determine the time evolution of the wave function within a given potential ${V(\mathbf{r}, t)}$.
-  
-      <br><br>Since  ${\Psi(\mathbf{r}, t)}$  conveys probability ampltiudes, the probability distrubtion function (PDF) for particle detection at a given location is calculated by 
-  ${\Psi^*(\mathbf{r}, t) \cdot \Psi(\mathbf{r}, t)=real(\Psi(\mathbf{r}, t))^2+imag(\Psi(\mathbf{r}, t))^2}$
-    </p>
-    
-      <p class="paragraph_17_mid"> The TDSE demonstrates the quantum uncertainty principle which states that the uncertainty in position is inversely proportionaly to the uncertainity of momentum. The exact relationship is expressed by the following equation ${\Delta x \Delta p \geq \frac{\hbar}{2}}$.
-        By decreasing the initial standard deviation (decreasing positional uncertainty) of the guassian envelope, the momentum of the wave function becomes more uncertain. The movement of the wavefunction becomes less defined. The following images are three wave functions in a parabolic potential with increasing uncertainty of momentum but decreasing uncertainty of initial (measured) position.</p>
-	  
-      <div class="image_2"><img src="images/MATLAB/psi_up_three.gif"></div>
-      <div class="image_2"><img src="images/MATLAB/psi_up_two.gif"></div>
-      <div class="image_2"><img src="images/MATLAB/psi_up_one.gif"></div>
-
-      <p class="paragraph_17_mid">  In quantum mechanics the momentum, is directly related to the wavenumbers of the wave. The higher the wave number, the more momentum and more energy the system contains. The higher the energy of the wave, the more distance the wave could travel away from the origin before being reflected by the potential.</p>
-
-
-      <div class="image_2"><img src="images/MATLAB/psi_energy.gif"></div>
-
-
-
-  </div>
-
-</div>
 
 
 
